@@ -1,12 +1,47 @@
 function newImage(url, left, bottom){
     let image = document.createElement('img')
     image.src = url
-    image.style.position = 'fixed'
-    image.style.left = left + 'px'
-    image.style.bottom = bottom + 'px'
     document.body.append(image)
     return image
 }
+
+const character = newImage('assets/green-character/static.gif')
+
+function handleDirectionChange(direction){
+    if(direction === null){
+        character.src = 'assets/green-character/static.gif'
+    }
+    if(direction === 'west'){
+        character.src = 'assets/green-character/west.gif'
+    }
+    if(direction === 'north'){
+        character.src = 'assets/green-character/north.gif'
+    }
+    if(direction === 'east'){
+        character.src = 'assets/green-character/east.gif'
+    }
+    if(direction === 'south'){
+        character.src = 'assets/green-character/south.gif'
+    }
+}
+function moveWithArrowKeys(left, bottom, callback){
+    let direction = null;
+    let x = left;
+    let y = bottom;
+    ...
+
+
+move(character).withArrowKeys(100, 250, handleDirectionChange)
+
+function move(image, left, bottom) {
+    image.style.position = 'fixed'
+    image.style.left = left + 'px'
+    image.style.bottom = bottom + 'px'
+}
+
+let greenCharacter = 
+newImage('assets/green-character.gif')
+move(greenCharacter, 100, 250)
 
 newImage('assets/green-character.gif', 100, 250)
 newImage('assets/tree.png', 200, 450)
